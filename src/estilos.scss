@@ -1,0 +1,24 @@
+header {
+    background-color: rgb(28, 95, 8);
+    justify-content: space-between;
+    
+}
+
+.header--tittle{
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav{
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+}
+.nav--link{
+    display: flex;
+    color: white;
+    list-style: none;
+}
