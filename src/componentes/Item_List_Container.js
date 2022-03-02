@@ -1,11 +1,17 @@
+import ItemCount from "./ItemCount";
 
 
 const Item_List_Container = (props) => {
 
     const {nombre} = props
+    
   return (
 
-    <h2>Hola {nombre} </h2> 
+    <>
+        <h2>Hola {nombre} </h2> 
+        <ItemCount/>
+    </>
+
   )
 }
 
