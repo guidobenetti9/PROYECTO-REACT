@@ -4,6 +4,7 @@ import Main from "./componentes/Main"
 import Header from "./componentes/Header"
 import ItemListContainer from "./componentes/ItemListContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from "./componentes/ItemDetailContainer";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Header/>
       <Main />
       <ItemListContainer/>
+      <ItemDetailContainer/>
       <Footer/>
       
       </>

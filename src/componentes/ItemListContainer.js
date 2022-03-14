@@ -49,9 +49,7 @@ const ItemListContainer = () => {
     
   return (
 
-    <> 
       <ItemList Items= {productos}/>
-    </>
 
   )
 }
