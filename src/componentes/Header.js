@@ -4,6 +4,7 @@ import CarWidget from "./CarWidget"
 import { Container } from "react-bootstrap"
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { Link } from "react-router-dom"
 
 
 const Header = () => {
@@ -11,12 +12,14 @@ const Header = () => {
     <Container fluid as="header">
 
     <Row>
-      <Col> {<h1> BM-Gamestore </h1>} </Col>
+      <Col> <Link to="/">{<h1> BM-Gamestore </h1>}  </Link></Col>
       <Col> 
-      <CarWidget/>
+      <Link to="carrito"> <CarWidget/> </Link>
+     
       <Navbar/> 
       </Col>
     </Row>
+
     </Container>
   )
 }

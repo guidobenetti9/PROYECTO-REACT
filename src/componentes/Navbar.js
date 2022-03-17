@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
-    <ul className="nav">
-    <li className="nav--link"> <a href="*"> opcion 1 </a> </li>
-    <li> <a href="*"> opcion 2 </a> </li>
-    <li> <a href="*"> opcion 3 </a>  </li>
+    <nav className="nav">
+    <Link to={`/cat/1`} className="nav--link">  cat 1  </Link>
+    <Link to={`/cat/2`} className="nav--link">  cat 2  </Link>
+    <Link to={`/cat/3`} className="nav--link">  cat 3   </Link>
 
-  </ul>
+  </nav>
 
   )
 }

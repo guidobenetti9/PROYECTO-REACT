@@ -1,5 +1,7 @@
 import ItemList from "./ItemList";
 import {useState,useEffect} from "react";
+import { toast } from 'react-toastify';
+import { useParams } from "react-router-dom";
 
 let Juegos = [
   {
@@ -24,11 +26,12 @@ let Juegos = [
 
 const ItemListContainer = () => {
 
-  const [productos, setProductos] = useState([])
+  const [productos, setProductos] = useState([]);
+  const {idCategoria} = useParams();
 
   useEffect(()=>{
-    console.log("esta andando")
 
+    toast.info("Cargando productos....")
     const pedido = new Promise ((res,rej)=>{
       setTimeout(()=>{
         res(Juegos)
@@ -38,14 +41,14 @@ const ItemListContainer = () => {
   
     pedido
     .then((resultado)=>{
-        console.log("esta bien")
+        toast.dismiss()
         setProductos(resultado)
     })
     .catch((error)=>{
-      console.log("mal")
+      toast.error("hubo un error")
     })
 
-  },[]);
+  },[idCategoria]);
     
   return (
 

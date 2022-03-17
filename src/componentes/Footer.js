@@ -1,15 +1,23 @@
 import React from 'react'
+import { Container } from "react-bootstrap"
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 const Footer = () => {
   return (
-    <footer>
-        <ul>
-            <li> <a href="*"> NOSOTROS </a> </li>
-            <li> <a href="*"> CATALOGO </a> </li>
-            <li> <a href="*"> UBICACION </a>  </li>
-     
-        </ul>
-    </footer>
+  
+  <Container fluid as ="footer">
+    <Row>
+    <section className='footer'>
+        <Col><a href="*"> NOSOTROS </a>  </Col>
+        <Col><a href="*"> CATALOGO </a>  </Col>
+        <Col><a href="*"> UBICACION </a>  </Col>
+    </section>
+    </Row>
+
+  </Container>
+
   )
 }
 

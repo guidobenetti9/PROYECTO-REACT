@@ -2,20 +2,22 @@
 import Footer from "./componentes/Footer"
 import Main from "./componentes/Main"
 import Header from "./componentes/Header"
-import ItemListContainer from "./componentes/ItemListContainer";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemDetailContainer from "./componentes/ItemDetailContainer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter } from "react-router-dom";
+
 
 const App = () => {
   return (
-      <>
-      <Header/>
-      <Main />
-      <ItemListContainer/>
-      <ItemDetailContainer/>
-      <Footer/>
+      <BrowserRouter> 
+        <Header/>
+        <Main />
+        <Footer/>
+        <ToastContainer/>
+      </BrowserRouter>
+
       
-      </>
   )
 }
 
