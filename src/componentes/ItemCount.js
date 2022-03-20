@@ -52,7 +52,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
         const stockSuma = () =>{
           if(stock>stockVacio){
-             stockFinal(stock+estado);
+             stockFinal(stock-estado);
           }
          
        }
