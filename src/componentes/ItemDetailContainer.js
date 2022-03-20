@@ -27,7 +27,6 @@ let Juegos = [
   
 const ItemDetailContainer = () => {
     const [productos, setProductos] = useState({})
-    console.log(useParams())
     useEffect(()=>{
   
       const pedido = new Promise ((res,rej)=>{
