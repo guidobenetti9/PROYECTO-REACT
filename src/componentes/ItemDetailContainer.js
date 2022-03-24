@@ -1,6 +1,5 @@
 import React from 'react'
 import {useState,useEffect} from "react";
-import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
 let Juegos = [
@@ -27,6 +26,7 @@ let Juegos = [
   
 const ItemDetailContainer = () => {
     const [productos, setProductos] = useState({})
+
     useEffect(()=>{
   
       const pedido = new Promise ((res,rej)=>{

@@ -5,7 +5,7 @@ const ItemCount = ({stock, initial, onAdd, Cantidad}) => {
 
     
     const [estado, setEstado] = useState(initial);
-
+  
     const sumar = () =>{
         if (estado<stock) {
         setEstado(estado+1);
