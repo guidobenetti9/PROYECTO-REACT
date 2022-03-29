@@ -11,9 +11,9 @@ const ItemDetail = ({detail}) => {
   
     const onAdd = (Cantidad)=> {
       setCantidad(Cantidad)
-      addItem(...detail, Cantidad)
+      addItem(detail,Cantidad)
     }
-
+    
   return (
 
         <article className='itemDetail'>

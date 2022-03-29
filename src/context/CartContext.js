@@ -19,12 +19,17 @@ const CartProvider = ({children}) => {
         setCant(cant+1);
         
     }
+
+    const eliminarItem = (id) => {
+        setCarrito(carrito.filter(item => item.id !== id));
+    }
      
     const valorProvider = {
         carrito,
         cant,
         total,
-        addItem
+        addItem,
+        eliminarItem
     
     }
 
