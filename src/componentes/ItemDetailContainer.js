@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState,useEffect} from "react";
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 
 let Juegos = [
@@ -23,15 +24,19 @@ let Juegos = [
   }
 ]
 
+
   
 const ItemDetailContainer = () => {
     const [productos, setProductos] = useState({})
+    const {idProducto} = useParams();
+
 
     useEffect(()=>{
   
       const pedido = new Promise ((res,rej)=>{
         setTimeout(()=>{
-          res(Juegos)   
+          res(Juegos[idProducto-1]) 
+          
       },2000)
       })
     
@@ -43,10 +48,11 @@ const ItemDetailContainer = () => {
       .catch((error)=>{
         console.log("mal")
       })
-  
     },[]);
+
   return (
       <ItemDetail detail={productos}/>
+      
 
 
   )

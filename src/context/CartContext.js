@@ -1,4 +1,4 @@
-import { createContext, useState} from "react";
+import { createContext, useState } from "react";
 
 
 export const contexto = createContext();
@@ -27,6 +27,7 @@ const CartProvider = ({children}) => {
         addItem
     
     }
+
     return (
 
         <Provider value={valorProvider}>

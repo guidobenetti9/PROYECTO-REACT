@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useContext } from 'react'
 import { contexto } from '../context/CartContext'
 
 
 const Carrito = () => {
   const { carrito } = useContext(contexto)
+
 
   return (
     <div>
