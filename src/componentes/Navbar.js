@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 const Navbar = () => {
   return (
     <nav className="nav">
-    <Link to={`/cat/1`} className="nav--link">  cat 1  </Link>
-    <Link to={`/cat/2`} className="nav--link">  cat 2  </Link>
-    <Link to={`/cat/3`} className="nav--link">  cat 3   </Link>
+    <Link to={`/categoria/accion`} className="nav--link">  Accion </Link>
+    <Link to={`/categoria/rpg`} className="nav--link">  RPG </Link>
+    <Link to={`/categoria/deportes`} className="nav--link">  Deportes  </Link>
 
   </nav>
 

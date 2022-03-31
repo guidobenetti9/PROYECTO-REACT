@@ -1,54 +1,32 @@
 import React from 'react'
 import {useState,useEffect} from "react";
+import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
-
-let Juegos = [
-  {
-      id:1,
-      nombre: "Juego 1",
-      precio: "100"
-
-  },
-  {
-      id:2,
-      nombre: "Juego 2",
-      precio: "200"
-
-  },
-  {
-      id:3,
-      nombre: "Juego 3",
-      precio: "300"
-
-  }
-]
+import { db } from "../firebase";
+import { collection, getDocs, query,where} from "firebase/firestore";
 
 
-  
+
 const ItemDetailContainer = () => {
     const [productos, setProductos] = useState({})
     const {idProducto} = useParams();
 
 
     useEffect(()=>{
-  
-      const pedido = new Promise ((res,rej)=>{
-        setTimeout(()=>{
-          res(Juegos[idProducto-1]) 
-          
-      },2000)
-      })
+        const productosCollection = collection(db,"productos");
+        const filtro = query(productosCollection, where("id", "==", Number(idProducto)));
+        const consulta = getDocs(filtro);
+
+        consulta
+        .then((resultado)=>{
+          toast.dismiss()
+          setProductos(resultado.docs[0].data())
     
-      pedido
-      .then((resultado)=>{
-          console.log("esta bien")
-          setProductos(resultado)
-      })
-      .catch((error)=>{
-        console.log("mal")
-      })
-    },[]);
+        })
+        .catch(()=>{toast.error("Error al cargar los productos");})
+        
+    },[idProducto]);
 
   return (
       <ItemDetail detail={productos}/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap';
 
-const ItemCount = ({stock, initial, onAdd, Cantidad}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     
     const [estado, setEstado] = useState(initial);

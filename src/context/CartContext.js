@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 
 export const contexto = createContext();
@@ -10,10 +10,16 @@ const CartProvider = ({children}) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
 
+    useEffect(() => {
+      console.log(carrito)
+    
 
-    const addItem = (producto,Cantidad) => {
+    }, [carrito])
+    
+
+    const addItem = (producto,cantidad) => {
         const copiaCart = [...carrito];
-        const itemAlCarrito = {...producto,Cantidad};
+        const itemAlCarrito = [...carrito,{id:producto.id, nombre:producto.nombre, precio:producto.precio, cantidad:cantidad}];
         copiaCart.push(itemAlCarrito);
         setCarrito(copiaCart);
         setCant(cant+1);

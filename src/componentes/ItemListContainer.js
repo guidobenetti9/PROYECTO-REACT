@@ -2,27 +2,9 @@ import ItemList from "./ItemList";
 import {useState,useEffect} from "react";
 import { toast } from 'react-toastify';
 import { useParams } from "react-router-dom";
+import { db } from "../firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-let Juegos = [
-  {
-      id:1,
-      nombre: "Juego 1",
-      precio: "100"
-
-  },
-  {
-      id:2,
-      nombre: "Juego 2",
-      precio: "200"
-
-  },
-  {
-      id:3,
-      nombre: "Juego 3",
-      precio: "300"
-
-  }
-]
 
 const ItemListContainer = () => {
 
@@ -30,24 +12,37 @@ const ItemListContainer = () => {
   const {idCategoria} = useParams();
 
   useEffect(()=>{
+    
 
-    toast.info("Cargando productos....")
-    const pedido = new Promise ((res,rej)=>{
-      setTimeout(()=>{
-        res(Juegos)
-       
-    },2000)
-    })
+    const productosCollection = collection(db,"productos");
+    
   
-    pedido
-    .then((resultado)=>{
-        toast.dismiss()
-        setProductos(resultado)
-    })
-    .catch((error)=>{
-      toast.error("hubo un error")
-    })
+    if(!idCategoria){
 
+      const consulta = getDocs(productosCollection);
+    
+      toast.info("Cargando productos....")
+
+      consulta
+    .then((resultado)=>{
+      toast.dismiss()
+      setProductos(resultado.docs.map((doc)=>doc.data()))
+
+    })
+    .catch(()=>{toast.error("Error al cargar los productos");})
+
+  }else{
+    const filtro = query(productosCollection, where("categoria", "==", idCategoria));
+    const consulta = getDocs(filtro);
+
+    consulta
+    .then((resultado)=>{
+      toast.dismiss()
+      setProductos(resultado.docs.map((doc)=>doc.data()))
+
+    })
+    .catch(()=>{toast.error("Error al cargar los productos");})
+  }
   },[idCategoria]);
     
   return (

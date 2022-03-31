@@ -9,9 +9,9 @@ const ItemDetail = ({detail}) => {
     const [Cantidad, setCantidad] = useState(0)
     const {addItem} = useContext(contexto)
   
-    const onAdd = (Cantidad)=> {
-      setCantidad(Cantidad)
-      addItem(detail,Cantidad)
+    const onAdd = (cant)=> {
+      setCantidad(cant)
+      addItem(detail,cant)
     }
     
   return (
