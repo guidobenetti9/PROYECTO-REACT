@@ -10,6 +10,7 @@ const ItemDetail = ({detail}) => {
     const {addItem} = useContext(contexto)
   
     const onAdd = (cant)=> {
+      console.log(cant)
       setCantidad(cant)
       addItem(detail,cant)
     }
