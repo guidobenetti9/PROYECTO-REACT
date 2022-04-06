@@ -26,11 +26,13 @@ const CartProvider = ({children}) => {
         if(isInCart(producto.id)) {
             const index = copiaCart.findIndex(item => item.id === producto.id);
             copiaCart[index].cantidad += cantidad;
+            setTotal(total+producto.precio*cantidad);
         } 
         else {
         copiaCart.push(itemAlCarrito);
         setCarrito(copiaCart);
         setCant(cant+1);
+        setTotal(total+producto.precio*cantidad);
         console.log(itemAlCarrito);
         }
        
