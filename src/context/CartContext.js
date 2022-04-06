@@ -22,11 +22,21 @@ const CartProvider = ({children}) => {
          console.log(cantidad);
         const copiaCart = [...carrito];
         const itemAlCarrito = {...producto, cantidad};
+
+        if(isInCart(producto.id)) {
+            const index = copiaCart.findIndex(item => item.id === producto.id);
+            copiaCart[index].cantidad += cantidad;
+        } 
+        else {
         copiaCart.push(itemAlCarrito);
         setCarrito(copiaCart);
         setCant(cant+1);
         console.log(itemAlCarrito);
+        }
        
+    }
+    const isInCart = (id) => {
+        return carrito.some(item => item.id === id);  
     }
 
     const eliminarItem = (id) => {
