@@ -1,36 +1,13 @@
 import React from 'react'
 import { useContext } from 'react'
 import { contexto } from '../context/CartContext'
-import { db } from '../firebase'
-import { collection, serverTimestamp, addDoc } from 'firebase/firestore'
-import { toast } from 'react-toastify'
+import { Link } from "react-router-dom"
 
 
 const Carrito = () => {
   const { carrito, eliminarItem, total} = useContext(contexto)
 
-  const TerminarCompra = () => {
-    const orden = {
-        buyer : {
-            nombre : 'messi',
-            email : 'aguante.messi@gmail',
-            telefono : '5794532'
-        },
-        items : carrito,
-        fecha: serverTimestamp(),
-        total : total
-    }
-    const ordenesCollection = collection(db, 'ordenes')
-    const pedido = addDoc(ordenesCollection, orden)
 
-    pedido
-    .then(() => {
-        toast.success("Pedido realizado con exito!")
-    })
-    .catch(() => {
-        toast.error("Error al realizar el pedido")
-    })
-  }
 
 
   return (
@@ -46,7 +23,7 @@ const Carrito = () => {
         </div>
       ))}
       <p>Total: ${total}</p>
-      <button onClick={TerminarCompra}> Terminar compra </button>
+      <button> <Link to={`/formulario`} className="link">  Terminar compra </Link> </button>
     </div>
   )
 }

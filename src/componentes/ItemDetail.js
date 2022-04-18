@@ -10,7 +10,6 @@ const ItemDetail = ({detail}) => {
     const {addItem} = useContext(contexto)
   
     const onAdd = (cant)=> {
-      console.log(cant)
       setCantidad(cant)
       addItem(detail,cant)
     }
@@ -18,7 +17,7 @@ const ItemDetail = ({detail}) => {
   return (
 
         <article className='itemDetail'>
-            <img src= {"https://picsum.photos/500/350"} alt="imagen"/>
+            <img className='imagen-juego-detalle' src= {detail.image} alt="imagen"/>
             <div> 
              <h3> NOMBRE: {detail.nombre}  </h3>
              <p> PRECIO: {detail.precio} </p>

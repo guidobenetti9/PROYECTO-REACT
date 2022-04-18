@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState} from "react";
 
 
 export const contexto = createContext();
@@ -11,15 +11,9 @@ const CartProvider = ({children}) => {
     const [carrito, setCarrito] = useState([]);
     const [total, setTotal] = useState(0);
 
-    useEffect(() => {
-        console.log(carrito);
-        
-    }, [carrito])
     
-
     const addItem = (producto,cantidad) => {
-         console.log(producto);
-         console.log(cantidad);
+
         const copiaCart = [...carrito];
         const itemAlCarrito = {...producto, cantidad};
 
@@ -33,16 +27,18 @@ const CartProvider = ({children}) => {
         setCarrito(copiaCart);
         setCant(cant+1);
         setTotal(total+producto.precio*cantidad);
-        console.log(itemAlCarrito);
         }
        
     }
+
     const isInCart = (id) => {
         return carrito.some(item => item.id === id);  
     }
 
     const eliminarItem = (id) => {
         setCarrito(carrito.filter(item => item.id !== id));
+        setCant(cant-1);
+        setTotal(total-carrito.find(item => item.id === id).precio);
     }
      
     const valorProvider = {
