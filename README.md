@@ -19,6 +19,8 @@ Soy Guido Nehuen Benetti tengo 20 años, este es mi proyecto final de react en C
 
 ### Uso/ Instalacion:
 [DEMO DE PAGINA](https://dazzling-taiyaki-78d254.netlify.app/)
+
+[LINK VIDEO Y FUNCIONAMIENTO](https://drive.google.com/file/d/1ERaI-Ae9VUuaSnsWIBXnp7DtG02Outvd/view?usp=sharing)
 ```
 git clone https://github.com/guidobenetti9/PROYECTO-REACT.git
 cd PROYECTO-REACT
