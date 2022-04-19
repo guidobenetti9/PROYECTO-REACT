@@ -39,7 +39,6 @@ const ItemListContainer = () => {
     .then((resultado)=>{
       toast.dismiss()
       setProductos(resultado.docs.map((doc)=>doc.data()))
-
     })
     .catch(()=>{toast.error("Error al cargar los productos");})
   }

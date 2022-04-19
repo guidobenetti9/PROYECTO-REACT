@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState} from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp} from 'firebase/firestore'
 import { db } from "../firebase";
 import { toast } from 'react-toastify';
 import { Container, Row , Col} from 'react-bootstrap';
+import { contexto } from '../context/CartContext'
 
 const Formulario = () => {
 
+    const { limpiarCarrito, carrito , total} = useContext(contexto)
 
     const orden = {
             nombre : '',
             email : '',
-            telefono : ''
+            telefono : '',
+            compra : carrito,
+            total : total,
+            fecha: serverTimestamp()
     }
 
     const [user, setUser] = useState(orden)
@@ -27,6 +32,7 @@ const Formulario = () => {
             await addDoc(collection(db,'ordenes' ),  {
                 ...user
             })
+            limpiarCarrito();
             toast.success("Pedido realizado con exito!")
         } catch (error) {
             toast.error("Error al realizar el pedido")

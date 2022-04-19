@@ -16,13 +16,13 @@ const Header = () => {
 
     <Row>
       <Col> 
-      <Link to="/">{<h1> BM-Gamestore </h1>}  </Link>
+        <Link to="/">{<h1> BM-Gamestore </h1>}  </Link>
       </Col>
       <Col>
-      <Link to="carrito"> 
-      <CarWidget/> 
-      </Link> 
-      {cant}
+        <Link to="carrito"> 
+          <CarWidget/> 
+        </Link> 
+        {cant}
       <Navbar/> 
       </Col>
     </Row>

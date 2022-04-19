@@ -13,19 +13,21 @@ const CartProvider = ({children}) => {
 
     
     const addItem = (producto,cantidad) => {
-
+        console.log(producto ,cantidad);
         const copiaCart = [...carrito];
         const itemAlCarrito = {...producto, cantidad};
+        
 
         if(isInCart(producto.id)) {
             const index = copiaCart.findIndex(item => item.id === producto.id);
             copiaCart[index].cantidad += cantidad;
+            setCant(cant + cantidad);
             setTotal(total+producto.precio*cantidad);
         } 
         else {
         copiaCart.push(itemAlCarrito);
         setCarrito(copiaCart);
-        setCant(cant+1);
+        setCant(cant + cantidad);
         setTotal(total+producto.precio*cantidad);
         }
        
@@ -37,8 +39,14 @@ const CartProvider = ({children}) => {
 
     const eliminarItem = (id) => {
         setCarrito(carrito.filter(item => item.id !== id));
-        setCant(cant-1);
-        setTotal(total-carrito.find(item => item.id === id).precio);
+        setCant(cant - carrito.find(item => item.id === id).cantidad);
+        setTotal(total - carrito.find(item => item.id === id).precio*carrito.find(item => item.id === id).cantidad);
+    }
+
+    const limpiarCarrito = () => {
+        setCarrito([]);
+        setCant(0);
+        setTotal(0);
     }
      
     const valorProvider = {
@@ -46,7 +54,8 @@ const CartProvider = ({children}) => {
         cant,
         total,
         addItem,
-        eliminarItem
+        eliminarItem,
+        limpiarCarrito
     
     }
 
